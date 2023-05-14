@@ -1,0 +1,82 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <link rel="stylesheet" href="login.css">
+    <link rel="stylesheet" href="home.css">
+    <script src="https://kit.fontawesome.com/f43a7120ab.js" crossorigin="anonymous"></script>
+    <script defer src="./main.js"></script>
+    <script defer src="https://cdn.jsdelivr.net/npm/sweetalert2@11"></script>
+
+    <title>CODE BANK</title>
+</head>
+<body>
+     <!-- vista LogIn -->
+     <div id="login" class="containerPrincipal">
+        <div class="form-group">
+            <input id="user" type="text" class="form-control" name="username" placeholder="user" autocomplete="off">
+            <input id="password" type="password" class="form-control" name="password" placeholder="password" >
+            <br>
+            <button id="loginBtn" class="loginBtn" onclick="login()">Log in</button>
+        </div>
+    </div>
+
+       <!-- vista home -->
+    <div id="home"> 
+        <header>
+            <i class="fa-solid fa-user fa-xl"></i>        
+            <h1>TU BANK</h1>
+            <div class="logOut-btn">
+                <div class="log-out">
+                    <button id="btn-logout" onclick="logOut()">LOG OUT</button>
+                </div>
+            </div>
+        </header>  
+
+        <section class="info-container">
+            <div class="container-home">         
+                <div class="info">
+                    <h1 id="welcome" class="WelcomeUser">Welcome</h1>
+                    <h3>Select an option</h3>
+                    <div class="options-box">
+                        <div class="deposit-box">
+                            <h3 class="deposit-txt">Deposit</h3>
+                            <h4 id="deposit-total">$<span>.00 USD</span></h4>
+                        </div>
+                        <div class="withdraw-box">
+                            <h3 class="withdraw-txt">withdraw</h3>
+                            <h4 id="withdraw-total">$<span>.00 USD</span></h4>
+                        </div>
+                        <div class="balance-box">
+                            <h3 class="balance-txt">Balance</h3>
+                            <h4 id="balance-total">$<span>.00 USD</span></h4>
+                        </div>
+                    </div>
+                    
+                </div>
+            </div>
+        </section>
+
+        <section class="function-container">
+
+            <div class="btn-group">
+                <div class="deposit-group">
+                    <input id="deposit-input" type="text" placeholder="Enter deposit ammount">
+                    <button id="btn-deposit">Deposit</button>
+                </div>
+                <div class="withdrawl-group">
+                    <input id="withdraw-input" type="text" placeholder="Enter withdraw ammount">
+                    <button id="btn-withdraw">Withdraw</button>
+                </div>
+                
+            </div>
+
+        </section>
+        
+          
+       
+
+</body>
+</html>

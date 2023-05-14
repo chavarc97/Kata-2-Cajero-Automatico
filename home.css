@@ -1,0 +1,184 @@
+@import url('https://fonts.googleapis.com/css2?family=Roboto&display=swap');
+
+*{
+    margin: 0;
+    padding: 0;
+    box-sizing: border-box;
+}
+
+body{
+
+    background: #552451;
+    height: 100vh;
+    background-position: center center;
+    
+    background-size: cover;
+}
+
+header{
+    color: white;
+    display: flex;
+    align-items: center;
+    justify-content: space-between;
+    margin: 0;
+    padding: 10px 0px;
+    font-family: 'Roboto', sans-serif;
+    width: 100vw;
+}
+
+header .logOut-btn button{
+    padding: 10px 10px;
+    background-color: transparent;
+    border: none;
+    color: white;
+    display: flex;
+    align-items: center;
+    justify-content: space-around;
+    font-size: 1.3em;
+    position: relative;
+    right: 15px;
+}
+
+header .logOut-btn button:hover{
+    border-radius: 15px;
+    cursor: pointer;
+    background-color: #af4aa6;
+}
+
+header i{
+    position: relative;
+    left: 15px;
+    
+}
+
+header h1{
+    position: relative;
+    left: 50px;
+}
+
+.info-container{
+    display: flex;
+    flex-direction: column;
+    position: relative;
+    top: 100px;
+    justify-content: center;
+    align-items: center;
+    padding: 60px;
+    width: 100%;
+    height: 500px;
+    background-color: rgba(175, 175, 175, 0.13);
+    text-align: center;
+    color: white;
+    font-family: 'Roboto', sans-serif;
+    text-transform: capitalize;
+    letter-spacing: 4px;
+    gap: 60px;
+}
+.options-box{
+    display: flex;
+    flex-direction: row;
+    justify-content: space-around;
+    align-items: center;
+    width: 50vw;
+}
+
+.balance-box{
+    position: relative;
+    display: flex;
+    flex-direction: column;
+    justify-content: center;
+    align-items: center;
+    text-align: center;
+    padding: 60px;
+    background-color: #af4aa6;
+    gap: 15px;
+    border-radius: 30px;
+    height: 100px;
+    top: 30px;
+    box-shadow: 0 15px 25px rgba(0, 0, 0, 0.324);
+}
+.deposit-box{
+    position: relative;
+    display: flex;
+    flex-direction: column;
+    justify-content: center;
+    align-items: center;
+    text-align: center;
+    padding: 60px;
+    background-color: #af4aa6;
+    gap: 15px;
+    border-radius: 30px;
+    height: 100px;
+    top: 30px;
+    box-shadow: 0 15px 25px rgba(0, 0, 0, 0.324);
+}
+.withdraw-box{
+    position: relative;
+    display: flex;
+    flex-direction: column;
+    justify-content: center;
+    align-items: center;
+    text-align: center;
+    padding: 60px;
+    background-color: #af4aa6;
+    gap: 15px;
+    border-radius: 30px;
+    height: 100px;
+    top: 30px;
+    box-shadow: 0 15px 25px rgba(0, 0, 0, 0.324);
+}
+
+.btn-group{
+    display: flex;
+    justify-content: space-around;
+    align-items: center;
+    margin-top: 15%;
+    font-size: 1.5rem;
+}
+
+.deposit-group{
+    display: flex;
+    flex-direction: column;
+    height: 200px;
+    justify-content: center;
+    align-items: center;
+    position: absolute;
+    left: 600px;
+    
+}
+
+.withdrawl-group{
+    display: flex;
+    flex-direction: column;
+    height: 200px;
+    justify-content: center;
+    align-items: center;
+    position: absolute;
+    right: 600px;
+    text-align: center;
+}
+
+.btn-group button{
+    padding: 10px 10px;
+    background-color: transparent;
+    border: none;
+    color: white;
+    display: flex;
+    font-size: 1.3em;
+    position: relative;
+    text-align: center;
+}
+
+.btn-group button:hover{
+    border-radius: 15px;
+    cursor: pointer;
+    background-color: #af4aa6;
+}
+
+.btn-group input{
+    background-color: rgba(255, 255, 255, 0.826);
+    border-bottom: 1px #000000;
+}
+
+
+
