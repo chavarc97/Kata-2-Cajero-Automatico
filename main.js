@@ -12,7 +12,7 @@ var loginView = document.getElementById("login");
 var welcome = document.getElementById('welcome');
 let user = document.getElementById ('user');
 let password = document.getElementById ('password');
-let balance = document.getElementById ('balance-total');
+let balance = document.getElementById ('balaceTotal');
 
 //functions
 
@@ -34,7 +34,7 @@ function login(){
         homeView.style.display = "block";
         loginView.style.display = "none";
         welcome.innerHTML ='Welcome ' + accounts[i].name + ' !';
-        balance.innerHTML = '$' + (accounts[i].balance) + ' USD';
+        balance.innerHTML =  (accounts[i].balance);
     } else {
         Swal.fire('Contraseña incorrecta');
 
@@ -51,35 +51,64 @@ function logOut (){
 
 }
 
+/* dEPOSIT FUNCTION */
 document.getElementById('btn-deposit').addEventListener('click', function(){
-
-    let depositTotal = document.getElementById('deposit-total');
+    let balance = document.getElementById ('balaceTotal');
+    let depositTotal = document.getElementById('depositTotal');
     let depositInput = document.getElementById('deposit-input')
-    let depositAmount = Number(depositInput.value);
-    let currentBalance = Number(balance.innerText);
-    let updateBalance = currentBalance + depositAmount
+    let depositAmount = Number.parseFloat(depositInput.value);
+    let currentBalance = balance.innerText;
+    let updateBalance = Number.parseFloat(currentBalance + depositAmount)
     let totalRule = 990
-    console.log(typeof updateBalance)
+    
     if (depositAmount === 0){
         Swal.fire({
             icon: 'warning',
             title:'Advise',
-            text: "You don't have any balance to withdraw",
+            text: "You don't have any balance to deposit",
         })
-    } else if (updateBalance > totalRule){
+    } else if( updateBalance > totalRule ){
         Swal.fire({
             icon: 'warning',
             title:'Advise',
             text: 'You exceeded the allowed limit',
         })
     } else {
-        
-        balance.innerText = '$' + updateBalance + ' USD';
-        depositTotal.innerText = '$' + depositAmount + ' USD';
+    
+        balance.innerText = updateBalance;
+        depositTotal.innerText = depositAmount;
         depositInput.value = '';
     }
 
 
+})
+
+/* WITHDRAW FUNCTION */
+document.getElementById('btn-withdraw').addEventListener('click', function(){
+    const withdrawInput = document.getElementById('withdraw-input');
+    const value = withdrawInput.value
+    const withdraw = document.getElementById('withdrawTotal')
+
+    if(Number.parseFloat(value) === 0) {
+        Swal.fire({
+            icon: 'warning',
+            title:'Advise',
+            text: "You don't have any balance to withdraw",
+        })
+    } else if(Number.parseFloat(value) > balance.innerText) {
+        Swal.fire({
+        icon: 'warning',
+        title:'Advise',
+        text: "You don't have that much balance to withdraw",
+    })
+    } else {
+        const balanceValue = balance.innerText - Number.parseFloat(value);
+        const withdrawValue = Number(withdraw.innerText) + Number(value);
+        withdraw.innerText = withdrawValue;
+        balance.innerText = balanceValue;
+        withdrawInput.value = '';
+    }
+    
 })
 
 
