@@ -53,31 +53,32 @@ function logOut (){
 
 /* dEPOSIT FUNCTION */
 document.getElementById('btn-deposit').addEventListener('click', function(){
-    let balance = document.getElementById ('balaceTotal');
-    let depositTotal = document.getElementById('depositTotal');
-    let depositInput = document.getElementById('deposit-input')
-    let depositAmount = Number.parseFloat(depositInput.value);
-    let currentBalance = balance.innerText;
-    let updateBalance = Number.parseFloat(currentBalance + depositAmount)
-    let totalRule = 990
+    const depositInput = document.getElementById('deposit-input');
+    const value = depositInput.value;
+    const deposit = document.getElementById('depositTotal')
+    const maxBalance = 990
+    const TotalBalance = balance.innerText + parseFloat(value);
     
-    if (depositAmount === 0){
+    
+    if (parseFloat(value) === 0){
         Swal.fire({
             icon: 'warning',
             title:'Advise',
             text: "You don't have any balance to deposit",
         })
-    } else if( updateBalance > totalRule ){
+    } else if( TotalBalance > maxBalance){
         Swal.fire({
             icon: 'warning',
             title:'Advise',
             text: 'You exceeded the allowed limit',
         })
     } else {
-    
-        balance.innerText = updateBalance;
-        depositTotal.innerText = depositAmount;
+        const balanceValue = balance.innerText + Number.parseFloat(value);
+        const depositValue = parseFloat(deposit.innerText) + parseFloat(value);
+        deposit.innerText = depositValue;
+        balance.innerText = balanceValue;
         depositInput.value = '';
+        
     }
 
 
@@ -88,14 +89,16 @@ document.getElementById('btn-withdraw').addEventListener('click', function(){
     const withdrawInput = document.getElementById('withdraw-input');
     const value = withdrawInput.value
     const withdraw = document.getElementById('withdrawTotal')
+    const minBalance = 10
+    const saldoTotal = balance.innerText - parseFloat(value);
 
-    if(Number.parseFloat(value) === 0) {
+    if(Number.parseFloat(value) == '') {
         Swal.fire({
             icon: 'warning',
             title:'Advise',
             text: "You don't have any balance to withdraw",
         })
-    } else if(Number.parseFloat(value) > balance.innerText) {
+    } else if(saldoTotal < minBalance) {
         Swal.fire({
         icon: 'warning',
         title:'Advise',
