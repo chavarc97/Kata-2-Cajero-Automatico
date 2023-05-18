@@ -1,5 +1,5 @@
 let accounts = [
-    { name: 'mali', balance: '200' , password: '1234'},
+    { name: 'mali', balance: 200 , password: '1234'},
     { name: 'giselle', balance: 600 , password: '1abril2023'},
     { name: 'salvador', balance: 550 , password: '202020'}
 ];
@@ -51,16 +51,18 @@ function logOut (){
 
 }
 
+
 /* dEPOSIT FUNCTION */
 document.getElementById('btn-deposit').addEventListener('click', function(){
     const depositInput = document.getElementById('deposit-input');
-    const value = depositInput.value;
-    const deposit = document.getElementById('depositTotal')
-    const maxBalance = 990
-    const TotalBalance = balance.innerText + parseFloat(value);
+    const value = parseFloat(depositInput.value);
+    const deposit = document.getElementById('depositTotal');
+    const maxBalance = 990;
+    const currentBalance = parseFloat(balance.innerText);
+    const TotalBalance = currentBalance + parseFloat(value);
     
     
-    if (parseFloat(value) === 0){
+    if (value == 0){
         Swal.fire({
             icon: 'warning',
             title:'Advise',
@@ -73,8 +75,9 @@ document.getElementById('btn-deposit').addEventListener('click', function(){
             text: 'You exceeded the allowed limit',
         })
     } else {
-        const balanceValue = balance.innerText + Number.parseFloat(value);
-        const depositValue = parseFloat(deposit.innerText) + parseFloat(value);
+        const balanceValue = currentBalance + value;
+        const currentDeposit = parseFloat(deposit.innerText);
+        const depositValue = currentDeposit + value;
         deposit.innerText = depositValue;
         balance.innerText = balanceValue;
         depositInput.value = '';
@@ -87,12 +90,12 @@ document.getElementById('btn-deposit').addEventListener('click', function(){
 /* WITHDRAW FUNCTION */
 document.getElementById('btn-withdraw').addEventListener('click', function(){
     const withdrawInput = document.getElementById('withdraw-input');
-    const value = withdrawInput.value
+    const value = parseFloat(withdrawInput.value)
     const withdraw = document.getElementById('withdrawTotal')
     const minBalance = 10
-    const saldoTotal = balance.innerText - parseFloat(value);
+    const saldoTotal = parseFloat(balance.innerText) - parseFloat(value);
 
-    if(Number.parseFloat(value) == '') {
+    if(parseFloat(value) == 0) {
         Swal.fire({
             icon: 'warning',
             title:'Advise',
