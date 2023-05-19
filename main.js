@@ -1,7 +1,7 @@
 let accounts = [
     { name: 'mali', balance: 200 , password: '1234'},
     { name: 'giselle', balance: 600 , password: '1abril2023'},
-    { name: 'salvador', balance: 550 , password: '202020'}
+    { name: 'salvador', balance: 550 , password: 'git'}
 ];
 
 
