@@ -62,7 +62,7 @@ document.getElementById('btn-deposit').addEventListener('click', function(){
     const TotalBalance = currentBalance + parseFloat(value);
     
     
-    if (value == 0){
+    if (depositInput.value === ''){
         Swal.fire({
             icon: 'warning',
             title:'Advise',
@@ -74,10 +74,11 @@ document.getElementById('btn-deposit').addEventListener('click', function(){
             title:'Advise',
             text: 'You exceeded the allowed limit',
         })
+        depositInput.value = '';
     } else {
         const balanceValue = currentBalance + value;
-        const currentDeposit = parseFloat(deposit.innerText);
-        const depositValue = currentDeposit + value;
+        
+        const depositValue = parseFloat(depositInput.value);
         deposit.innerText = depositValue;
         balance.innerText = balanceValue;
         depositInput.value = '';
@@ -95,7 +96,7 @@ document.getElementById('btn-withdraw').addEventListener('click', function(){
     const minBalance = 10
     const saldoTotal = parseFloat(balance.innerText) - parseFloat(value);
 
-    if(parseFloat(value) == 0) {
+    if(withdrawInput.value === '') {
         Swal.fire({
             icon: 'warning',
             title:'Advise',
@@ -106,7 +107,9 @@ document.getElementById('btn-withdraw').addEventListener('click', function(){
         icon: 'warning',
         title:'Advise',
         text: "You don't have that much balance to withdraw",
-    })
+        })
+        withdrawInput.value = '';
+    
     } else {
         const balanceValue = balance.innerText - Number.parseFloat(value);
         const withdrawValue = Number(withdraw.innerText) + Number(value);
