@@ -112,7 +112,7 @@ document.getElementById('btn-withdraw').addEventListener('click', function(){
     
     } else {
         const balanceValue = balance.innerText - Number.parseFloat(value);
-        const withdrawValue = Number(withdraw.innerText) + Number(value);
+        const withdrawValue = parseFloat(value);
         withdraw.innerText = withdrawValue;
         balance.innerText = balanceValue;
         withdrawInput.value = '';
